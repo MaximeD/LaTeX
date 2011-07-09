@@ -1,0 +1,33 @@
+\input{cours}              % appel du préambule
+
+% éventuels paquets supplémentaires à utiliser :
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{tikz}
+
+\author{Auteur du cours}
+\title{Titre du cours}
+\date{}                    % laisser vide pour qu'elle n'apparaisse pas
+
+
+\begin{document}
+\maketitle{}               % génération du titre
+\vspace{2,5cm}
+
+\input{cours 1}
+\input{cours 2}
+% ...
+%
+% etc
+
+
+\newpage{}
+\tableofcontents{}        % génération de la table des matières
+
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
