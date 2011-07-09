@@ -1,0 +1,72 @@
+\documentclass[a4paper, 11pt]{cours}
+
+% XeTeX :
+\XeTeXdefaultencoding utf-8
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\defaultfontfeatures{Mapping=tex-text}                 %% caractères spéciaux, comme ---
+\setmainfont{Garamond Premier Pro}
+
+\usepackage[frenchb]{babel}
+%\usepackage[polutonikogreek,ngerman,english,frenchb]{babel}
+
+\usepackage{array}
+\usepackage[stable]{footmisc}     %% pour des footnotes dans les titres
+\usepackage{pifont}               %% Dingbats
+
+\usepackage{perpage}              %% remise à zéro des footnote à chaque nouvelle page
+\MakePerPage{footnote}
+
+% flowchart, graph et tout le reste
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,calc}
+
+% Pour les pdf interractifs :
+% par défaut en noir, c'est mieux pour l'impression !
+\usepackage
+  [bookmarks=true,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=blue,
+  unicode=false,             %% laisser en false sinon problème d'encodage avec acroread
+  plainpages=false,
+  pdfpagelabels,
+  colorlinks=true,
+  xetex]
+  {hyperref} 
+
+%%% insérer des images
+%\usepackage[pdftex]{graphicx}
+%\usepackage[small]{caption}
+
+
+%% avoir des notes de bas de page à la française:
+\FrenchFootnotes
+\AddThinSpaceBeforeFootnotes
+
+%% définition de l'environnement "squote" pour que les citations hors-texte soient dans une casse inférieure
+\newenvironment{lquote}{\smallskip\begin{quote}\begin{small}\fontspec[Ligatures={Common, Rare}]{Garamond Premier Pro}}%
+    {\end{small}\end{quote}\smallskip}
+
+% idem avec quotation
+\newenvironment{lquotation}{\smallskip\begin{quotation}\begin{small}\fontspec[Ligatures={Common, Rare}]{Garamond Premier Pro}}%
+    {\end{small}\end{quotation}\smallskip}
+
+%% Renommer des commandes
+\renewcommand{\thesection}{\Roman{section}}	% Numérotation des chapitres en roman (I, II, ...)
+
+% Le sublissime swash avec ses ligatures
+\newcommand{\swash}[1]{{\fontspec[Ligatures={Common, Rare}]{Garamond Premier Pro Italic:+swsh}#1}}
+
+% pour les numéros en OldStyle
+\newcommand{\old}[1]{\fontspec[Numbers={OldStyle}]{Garamond Premier Pro}#1\fontspec[Numbers={Lining}]{Garamond Premier Pro}}
+
+% commande des cours
+\reversemarginpar
+\newcommand{\cours}[1]{\marginpar{\fontspec[Ligatures={Common, Rare}, Numbers={OldStyle}]{Garamond Premier Pro}\textit{Cours #1.}}\vspace{-10pt}}
+
+% les césure de mots non reconnus
+% TODO : les insérer dans un fichier externe
+\hyphenation{au-teur é-di-teur ho-ri-zon-tal im-pri-meur phy-si-que}
